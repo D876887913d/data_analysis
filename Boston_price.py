@@ -35,11 +35,18 @@ boston_data_df = boston_data_df[['DIS', 'TAX']]
 boston_all = boston_data_df.join(boston_label_df)
 print(boston_all.head())
 
-ax = boston_all.plot()
-boston_all.rolling(40).mean().plot(ax = ax)
+# ax = boston_all.plot()
+# boston_all.rolling(40).mean().plot(ax = ax)
 # boston_all.rolling(40).sum().plot()
 # boston_all.rolling(40).std().plot(ax = ax)
 
+# boston_all.expanding().mean().plot(ax = ax)
+
+# EWM算法进行普通移动平滑
+# boston_all = boston_all.ewm(span=30).mean().plot(ax = ax)
+
+# boston_corr = boston_all.rolling(125, min_periods=100).corr(boston_all['price']).plot()
+# print(boston_corr)
 
 
 
